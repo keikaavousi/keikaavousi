@@ -1,0 +1,17 @@
+# Jekyll build
+/_site
+/.jekyll-cache
+/.jekyll-metadata
+
+# Bundler
+/.bundle
+/vendor
+
+# Sass cache
+.sass-cache
+
+# macOS junk
+.DS_Store
+
+# node (اگر استفاده کنی)
+node_modules/
