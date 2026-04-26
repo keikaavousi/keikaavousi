@@ -7,9 +7,10 @@
 body {
     width: 100%;
     min-height: 100vh;
-    background: #0f1115;
-    color: #d6d8dc;
-    font-family: system-ui, sans-serif;
+    background-color: #f4efe6;
+    color: #2f2a24;
+    font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-weight: 300;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +19,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #d6d8dc;
+    color: #2f2a24;
     transition: opacity .2s ease;
     cursor: pointer;
 }
@@ -32,33 +33,35 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 34px;
     text-align: center;
 }
 
 .profile-img {
-    width: 110px;
-    height: 110px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    background: #333;
+    background: #d8d0c3;
 }
 
 .intro {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
 .title {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.65rem;
+    font-weight: 400;
+    letter-spacing: 0.2px;
 }
 
 .subtitle {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    opacity: 0.85;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    opacity: 0.75;
     max-width: 500px;
+    font-weight: 300;
 }
 
 .social-list {
@@ -66,21 +69,28 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 18px 22px;
     list-style: none;
 }
 
 .social-list li {
     display: flex;
     align-items: center;
+}
+
+.social-list a {
+    display: inline-flex;
+    align-items: center;
     gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 300;
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    opacity: 0.9;
+    width: 20px;
+    height: 20px;
+    opacity: 0.85;
+    flex-shrink: 0;
 }
 
 /* Bottom Sheet */
@@ -91,7 +101,7 @@ a:hover {
     left: 0;
     width: 100%;
     height: 95vh;
-    background: #16181d;
+    background: #f8f3ea;
     border-radius: 20px 20px 0 0;
     transform: translateY(100%);
     transition: transform .35s ease;
@@ -108,35 +118,37 @@ a:hover {
 .sheet-header {
     position: sticky;
     top: 0;
-    background: #16181d;
+    background: #f8f3ea;
     padding: 18px 28px;
     display: flex;
     align-items: center;
     gap: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid #dfd6c8;
 }
 
 .sheet-header h2 {
     font-size: 15px;
-    font-weight: 500;
-    color: #9aa0a6;
+    color: #817667;
     letter-spacing: .4px;
+    font-weight: 400;
 }
 
 /* Back button */
 
 .back-btn {
-    border: none;
-    background: #20232a;
-    color: #d0d3d7;
+    border: 1px solid #d8cdbd;
+    background: #efe7d9;
+    color: #4a4136;
     padding: 6px 12px;
     border-radius: 8px;
     font-size: 13px;
     cursor: pointer;
+    font-family: inherit;
+    font-weight: 300;
 }
 
 .back-btn:hover {
-    background: #2a2e36;
+    background: #e7ddcd;
 }
 
 /* Content container */
@@ -151,10 +163,10 @@ a:hover {
 
 .name {
     font-size: 26px;
-    font-weight: 600;
     letter-spacing: .3px;
     margin-bottom: 10px;
-    color: #f1f3f4;
+    color: #2f2a24;
+    font-weight: 400;
 }
 
 /* Sheet Content */
@@ -166,15 +178,17 @@ a:hover {
 .sheet-content p {
     line-height: 1.75;
     font-size: 15px;
-    color: #c9cdd2;
+    color: #4d463d;
     margin: 10px 0;
+    font-weight: 300;
 }
 
 .sheet-content li {
     line-height: 1.7;
     font-size: 15px;
-    color: #c9cdd2;
+    color: #4d463d;
     margin: 6px 0;
+    font-weight: 300;
 }
 
 .sheet-content ul {
@@ -186,38 +200,52 @@ a:hover {
 .sheet-content h2 {
     margin-top: 42px;
     margin-bottom: 10px;
+    padding-top: 16px;
     font-size: 13px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #8b9198;
-    font-weight: 600;
+    color: #776c5e;
+    font-weight: 400;
+    border-top: 1px solid #e3d8c8;
+}
+
+.sheet-content h2:first-of-type {
+    border-top: none;
+    padding-top: 0;
 }
 
 .sheet-content h3 {
     margin-top: 18px;
     margin-bottom: 6px;
     font-size: 15px;
+    color: #383127;
     font-weight: 600;
-    color: #e2e4e7;
+    letter-spacing: 0.15px;
+}
+
+.sheet-content strong {
+    font-weight: 600;
+    color: #30291f;
 }
 
 /* Divider */
 
 hr {
     border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid #ddd1c0;
     margin: 30px 0;
 }
 
 /* Links */
 
 .sheet-content a {
-    color: #7aa2ff;
+    color: #3f3426;
     text-decoration: none;
+    border-bottom: 1px solid rgba(63, 52, 38, 0.28);
 }
 
 .sheet-content a:hover {
-    text-decoration: underline;
+    opacity: 0.72;
 }
 
 /* Mobile */
@@ -231,6 +259,14 @@ hr {
 
     .name {
         font-size: 22px;
+    }
+
+    .title {
+        font-size: 1.45rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
     }
 
 }

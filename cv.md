@@ -1,9 +1,9 @@
 # MOHAMMADREZA KEIKAVOUSI
 
-**Medical Informatics Engineer | Clinical Data Systems & Digital Health Researcher**
+**Senior Software Engineer | Medical Informatics Engineer | Clinical Data Systems & Digital Health Researcher**
 
-📧 keikaavousi@gmail.com  
-🌐 www.keikaavousi.com | GitHub | LinkedIn | Google Scholar
+📧 [keikaavousi@gmail.com](mailto:keikaavousi@gmail.com)  
+🌐 [www.keikaavousi.com](https://www.keikaavousi.com) | [GitHub](https://github.com/keikaavousi) | [LinkedIn](https://linkedin.com/in/keikaavousi)
 
 ---
 
@@ -35,7 +35,7 @@ Focused on leveraging structured healthcare data, patient registries, and AI-ass
 Shahid Beheshti University of Medical Sciences (SBMU), Tehran  
 2016 – 2018
 
-- Thesis: _Cross-Platform Mobile Logbook for Type 2 Diabetes Management_
+- Thesis: Cross-Platform Mobile Logbook for Type 2 Diabetes Management
 - Supervisor: Dr. Farkhondeh Asadi
 - Focus: mHealth, patient self-management, usability evaluation, clinical data structuring
 
@@ -46,7 +46,7 @@ Shahid Beheshti University of Medical Sciences (SBMU), Tehran
 Islamic Azad University, Science & Research Branch, Tehran  
 2012 – 2016
 
-- Thesis: _Effect of Electromagnetic Fields on EMG Signals_
+- Thesis: Effect of Electromagnetic Fields on EMG Signals
 - Supervisor: Dr. Farzaneh Samiei
 - Focus: signal processing, electrophysiology, noise filtering
 
@@ -56,11 +56,11 @@ Islamic Azad University, Science & Research Branch, Tehran
 
 ## Journal Articles
 
-- _Development of an Inflammatory Bowel Disease Registry System_  
+- Development of an Inflammatory Bowel Disease Registry System  
   Middle East Journal of Digestive Diseases (2021)  
   https://pmc.ncbi.nlm.nih.gov/articles/PMC8531921/
 
-- _Comparative Study of Type 2 Diabetes Logbooks Across Countries_  
+- Comparative Study of Type 2 Diabetes Logbooks Across Countries  
   Archives of Advances in Biosciences (2020)  
   https://journals.sbmu.ac.ir/aab/article/view/31263/26517
 
