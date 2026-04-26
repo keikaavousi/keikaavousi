@@ -146,7 +146,7 @@ a:hover {
 }
 
 .post-item:hover {
-    background-color: rgba(0,0,0,0.02);
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .post-item a {
@@ -233,6 +233,7 @@ body.layout-post {
     border: 1px solid #2f2a24;
     border-radius: 5px;
     padding: 5px;
+    margin-top: 8px;
 }
 
 .post-back {
