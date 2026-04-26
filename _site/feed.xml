@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-04-26T17:09:31+03:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">MohammadReza Keikavousi</title><subtitle>Senior Software Engineer and Medical Informatics Specialist</subtitle><entry><title type="html">How LLMs Predict Answers</title><link href="http://localhost:4000/blog/llm-prediction/" rel="alternate" type="text/html" title="How LLMs Predict Answers" /><published>2026-04-26T00:00:00+03:30</published><updated>2026-04-26T00:00:00+03:30</updated><id>http://localhost:4000/blog/llm-prediction</id><content type="html" xml:base="http://localhost:4000/blog/llm-prediction/"><![CDATA[<p>When you ask a large language model a question, it might feel like it’s “thinking” or “knowing things.” But what’s actually happening is much simpler and also more interesting!</p>
+
+<p>An LLM doesn’t retrieve answers. <strong>It predicts the next token</strong>.</p>
+
+<p>That’s it.</p>
+
+<p>But this simple idea creates surprisingly complex behavior.</p>
+
+<h2 id="the-core-idea-next-token-prediction">The Core Idea: Next Token Prediction</h2>
+
+<p>At its core, a language model is trained to do one thing:</p>
+
+<blockquote>
+  <p>Given a sequence of words, predict the most likely next word.</p>
+</blockquote>
+
+<p>So if you type:
+I drink coffee every</p>
+
+<p>The model doesn’t “know” your habit. It calculates probabilities like:</p>
+
+<ul>
+  <li>morning → 0.72</li>
+  <li>day → 0.18</li>
+  <li>night → 0.08</li>
+</ul>
+
+<p>Then it picks one (based on decoding rules like temperature or sampling).</p>
+
+<p>This process repeats again and again until a full answer is formed.</p>
+
+<h2 id="from-tokens-to-full-answers">From Tokens to Full Answers</h2>
+
+<p>Let’s take a real example.</p>
+
+<p>Prompt:
+Explain why the sky is blue.</p>
+
+<p>The model doesn’t jump to a full explanation.</p>
+
+<p>It builds it step by step:</p>
+
+<ol>
+  <li>“The sky appears blue because…”</li>
+  <li>“of the way sunlight…”</li>
+  <li>“scatters in the atmosphere…”</li>
+</ol>
+
+<p>Each step is a new probability decision based on the previous text.</p>
+
+<p>So the answer is not retrieved; it is constructed incrementally.</p>
+
+<h2 id="where-understanding-comes-from">Where “Understanding” Comes From</h2>
+
+<p>Even though it’s just predicting tokens, the model behaves like it understands concepts.</p>
+
+<p>Why?</p>
+
+<p>Because during training, it saw billions of examples where certain patterns repeat:</p>
+
+<ul>
+  <li>“sunlight → scattering → blue sky”</li>
+  <li>“fever → infection → immune response”</li>
+  <li>“if raining → carry umbrella”</li>
+</ul>
+
+<p>It compresses all of this into statistical relationships inside its weights.</p>
+
+<p>So when you ask a question, it’s not recalling facts; it’s activating patterns that <em>look like reasoning</em>.</p>
+
+<h2 id="a-simple-intuition-example">A Simple Intuition Example</h2>
+
+<p>Let’s simplify it.</p>
+
+<p>Imagine a tiny dataset:</p>
+
+<p>Q: What is 2 + 2?
+A: 4</p>
+
+<p>Q: What is 3 + 3?
+A: 6</p>
+
+<p>Q: What is 4 + 4?
+A: ?</p>
+
+<p>A human says: “It’s 8 because addition pattern.”</p>
+
+<p>A language model doesn’t “understand addition” the way humans do.</p>
+
+<p>Instead, it learns:</p>
+
+<ul>
+  <li>input pattern: “X + X”</li>
+  <li>output pattern: “2X”</li>
+</ul>
+
+<p>So it predicts “8” because it fits the strongest learned pattern, not because it executes a symbolic rule.</p>
+
+<h2 id="what-actually-controls-the-output">What Actually Controls the Output</h2>
+
+<p>Even though probabilities exist, the final answer depends on decoding settings:</p>
+
+<h3 id="temperature">Temperature</h3>
+
+<ul>
+  <li>Low temperature : more deterministic, safe answers</li>
+  <li>High temperature : more diverse, creative answers</li>
+</ul>
+
+<h3 id="top-k--top-p">Top-k / Top-p</h3>
+
+<ul>
+  <li>Limits which candidate tokens are considered</li>
+  <li>Helps avoid weird or low-probability outputs</li>
+</ul>
+
+<p>So the same prompt can produce slightly different answers depending on how sampling is configured.</p>
+
+<h2 id="why-it-sometimes-gets-things-wrong">Why It Sometimes Gets Things Wrong</h2>
+
+<p>Since everything is probability-based:</p>
+
+<ul>
+  <li>If similar patterns exist in training data → strong answer</li>
+  <li>If patterns are weak or conflicting → hallucination risk</li>
+</ul>
+
+<p>The model will still produce <em>something fluent</em>, even if it’s incorrect.</p>
+
+<p>Because fluency is optimized, not truth.</p>
+
+<h2 id="a-useful-mental-model">A Useful Mental Model</h2>
+
+<p>Instead of thinking:</p>
+
+<blockquote>
+  <p>“The model knows the answer”</p>
+</blockquote>
+
+<p>Think:</p>
+
+<blockquote>
+  <p>“The model is continuing text in the most statistically likely way based on everything it has seen.”</p>
+</blockquote>
+
+<p>That shift alone makes prompting much easier.</p>
+
+<h2 id="why-prompting-actually-works">Why Prompting Actually Works</h2>
+
+<p>Good prompts don’t “ask better questions.”</p>
+
+<p>They:</p>
+
+<ul>
+  <li>shape the probability space</li>
+  <li>reduce ambiguity</li>
+  <li>activate the right patterns in training data</li>
+</ul>
+
+<p>So when you write a clear prompt, you are basically guiding the model toward a region of its learned distribution where the answer is more stable.</p>
+
+<h2 id="final-thought">Final Thought</h2>
+
+<p>LLMs are not reasoning engines in the human sense.</p>
+
+<p>They are pattern engines that simulate reasoning extremely well.</p>
+
+<p>And the surprising part is not that they sometimes fail, 
+it’s that this simple mechanism works as well as it does.</p>]]></content><author><name></name></author><category term="AI" /><summary type="html"><![CDATA[When you ask a large language model a question, it might feel like it’s “thinking” or “knowing things.” But what’s actually happening is much simpler and also more interesting!]]></summary></entry><entry><title type="html">Top-k, Top-p, and Temperature in LLMs Explained Simply</title><link href="http://localhost:4000/blog/top-k-top-p-temperature/" rel="alternate" type="text/html" title="Top-k, Top-p, and Temperature in LLMs Explained Simply" /><published>2026-04-21T00:00:00+03:30</published><updated>2026-04-21T00:00:00+03:30</updated><id>http://localhost:4000/blog/top-k-top-p-temperature</id><content type="html" xml:base="http://localhost:4000/blog/top-k-top-p-temperature/"><![CDATA[<p>When working with large language models, you’ll often hear three terms: <strong>temperature</strong>, <strong>top-k</strong>, and <strong>top-p (nucleus sampling)</strong>.</p>
+
+<p>They all control one thing:</p>
+
+<blockquote>
+  <p>How the model chooses the next word from a set of possibilities.</p>
+</blockquote>
+
+<p>Even though the model calculates probabilities, these settings decide how that probability is used.</p>
+
+<h2 id="temperature-how-random-the-model-is">Temperature: How “random” the model is</h2>
+
+<p>Temperature controls how confident or creative the model is when picking the next token.</p>
+
+<ul>
+  <li>Low temperature : more predictable, repetitive, stable</li>
+  <li>High temperature : more diverse, creative, sometimes risky</li>
+</ul>
+
+<h3 id="simple-intuition">Simple intuition</h3>
+
+<p>Imagine the model predicts next words like this:</p>
+
+<p>“coffee”:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>morning : 0.70
+evening : 0.20
+moon : 0.10
+</code></pre></div></div>
+
+<h3 id="low-temperature-eg-02">Low temperature (e.g. 0.2)</h3>
+
+<p>The model almost always picks:</p>
+
+<p>morning</p>
+
+<h3 id="high-temperature-eg-10">High temperature (e.g. 1.0+)</h3>
+
+<p>Now it might pick:</p>
+
+<p>morning / evening / moon</p>
+
+<p>Even low-probability choices become more likely.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Prompt:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Write a short sentence about coffee.
+</code></pre></div></div>
+
+<p>Low temperature output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I drink coffee every morning.
+</code></pre></div></div>
+
+<p>High temperature output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Coffee tastes like warm memory in a quiet room.
+</code></pre></div></div>
+
+<p>Same prompt. Different behavior.</p>
+
+<h2 id="top-k-limit-to-top-k-options">Top-k: Limit to top K options</h2>
+
+<p>Top-k sampling restricts the model to only the <strong>K most likely tokens</strong>.</p>
+
+<p>Instead of considering all possibilities, it trims the list.</p>
+
+<h3 id="example-1">Example</h3>
+
+<p>Probabilities:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>morning: 0.40
+evening: 0.25
+night: 0.20
+moon: 0.10
+banana: 0.05
+</code></pre></div></div>
+
+<p>If <strong>top-k = 3</strong>, only these are allowed:</p>
+
+<p>morning, evening, night</p>
+
+<p>Everything else is ignored.</p>
+
+<h3 id="effect">Effect</h3>
+
+<ul>
+  <li>Reduces weird outputs</li>
+  <li>Keeps responses more focused</li>
+  <li>Still allows some randomness</li>
+</ul>
+
+<h2 id="top-p-nucleus-sampling-probability-cutoff">Top-p (Nucleus Sampling): Probability cutoff</h2>
+
+<p>Top-p is more dynamic.</p>
+
+<p>Instead of picking a fixed number of tokens, it selects the smallest set whose total probability reaches <strong>p</strong>.</p>
+
+<h3 id="example-2">Example</h3>
+
+<p>Probabilities:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>morning: 0.40
+evening: 0.25
+night: 0.20
+moon: 0.10
+banana: 0.05
+</code></pre></div></div>
+
+<p>If <strong>top-p = 0.80</strong>, we include:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>morning (0.40)
+evening (0.25)
+night (0.20)
+</code></pre></div></div>
+
+<p>Total = 0.85 : stop here</p>
+
+<p>So only these tokens are considered.</p>
+
+<h3 id="why-its-useful">Why it’s useful</h3>
+
+<ul>
+  <li>Adapts to context automatically</li>
+  <li>More flexible than top-k</li>
+  <li>Common in modern LLM systems</li>
+</ul>
+
+<h2 id="how-they-work-together">How they work together</h2>
+
+<p>In practice, these are often combined:</p>
+
+<ul>
+  <li>Temperature adjusts randomness</li>
+  <li>Top-k limits candidate size</li>
+  <li>Top-p filters by probability mass</li>
+</ul>
+
+<p>Think of it like a funnel:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>All tokens
+↓ 
+top-k / top-p filters
+↓ 
+Filtered tokens
+↓ 
+temperature reshapes probability
+↓ 
+Final sampling choice
+</code></pre></div></div>
+
+<h2 id="real-world-behavior-example">Real-world behavior example</h2>
+
+<p>Prompt:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Explain what programming is in one sentence.
+</code></pre></div></div>
+
+<h3 id="low-temperature--top-p">Low temperature + top-p</h3>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Programming is the process of writing instructions for a computer to follow.
+</code></pre></div></div>
+
+<h3 id="high-temperature--top-p">High temperature + top-p</h3>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Programming is like teaching a machine how to think through structured language.
+</code></pre></div></div>
+
+<h3 id="higher-randomness">Higher randomness</h3>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Programming is a way humans whisper logic into machines using code.
+</code></pre></div></div>
+
+<p>Same meaning direction — different expression styles.</p>
+
+<h2 id="when-to-use-what">When to use what</h2>
+
+<p>Not rules, just intuition:</p>
+
+<ul>
+  <li><strong>Temperature 0–0.3</strong>
+    <ul>
+      <li>factual answers</li>
+      <li>code generation</li>
+      <li>structured outputs</li>
+    </ul>
+  </li>
+  <li><strong>Temperature 0.7–1.0</strong>
+    <ul>
+      <li>writing</li>
+      <li>brainstorming</li>
+      <li>explanations</li>
+    </ul>
+  </li>
+  <li><strong>Top-k 1-100 (sometimes up to 200+)</strong>
+    <ul>
+      <li>avoids extreme randomness</li>
+    </ul>
+  </li>
+  <li><strong>Top-p 0-1.0</strong>
+    <ul>
+      <li>general-purpose control, usually preferred</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="final-intuition">Final intuition</h2>
+
+<p>You are not changing what the model <em>knows</em>.</p>
+
+<p>You are changing:</p>
+
+<blockquote>
+  <p>how far it is allowed to explore its probability space before choosing a word.</p>
+</blockquote>
+
+<p>That’s the real power of these parameters.</p>]]></content><author><name></name></author><category term="AI" /><summary type="html"><![CDATA[When working with large language models, you’ll often hear three terms: temperature, top-k, and top-p (nucleus sampling).]]></summary></entry><entry><title type="html">Single-Shot vs Few-Shot Prompting</title><link href="http://localhost:4000/blog/single-vs-fewshot-prompt/" rel="alternate" type="text/html" title="Single-Shot vs Few-Shot Prompting" /><published>2026-04-20T00:00:00+03:30</published><updated>2026-04-20T00:00:00+03:30</updated><id>http://localhost:4000/blog/single-vs-fewshot-prompt</id><content type="html" xml:base="http://localhost:4000/blog/single-vs-fewshot-prompt/"><![CDATA[<p>Prompting LLMs usually falls into two practical styles: single-shot and few-shot. The difference is simple, but the impact on output quality and behavior can be huge.</p>
+
+<h2 id="single-shot-prompting">Single-Shot Prompting</h2>
+
+<p>Single-shot prompting gives the model only one instruction (or sometimes no example at all) and expects it to generalize. It relies heavily on the model’s pre-trained knowledge and your ability to describe the task clearly.</p>
+
+<p>It works best when:</p>
+
+<ul>
+  <li>The task is well-defined</li>
+  <li>The output format is structured</li>
+  <li>You want minimal overhead and fast iteration</li>
+</ul>
+
+<p>But it can fail when the task is ambiguous or requires specific patterns the model hasn’t strongly inferred.</p>
+
+<h3 id="example">Example</h3>
+
+<p>You give one instruction, no examples:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Classify the sentiment of this sentence as Positive, Negative, or Neutral.
+
+Sentence: "I waited 40 minutes for the bus and it never came."
+</code></pre></div></div>
+
+<p>Expected output: Negative</p>
+
+<p>Here, the model relies only on the instruction and its internal understanding of sentiment.</p>
+
+<h2 id="few-shot-prompting">Few-Shot Prompting</h2>
+
+<p>Few-shot prompting provides multiple examples of input-output pairs. Instead of just telling the model what to do, you show it how to do it.</p>
+
+<p>This improves consistency because the model starts to detect patterns:</p>
+
+<ul>
+  <li>Input and Output structure becomes clearer</li>
+  <li>Edge cases are implicitly demonstrated</li>
+  <li>Output style becomes more stable</li>
+</ul>
+
+<p>However, it also increases prompt size and can introduce bias if examples are poorly chosen.</p>
+
+<h3 id="example-1">Example</h3>
+
+<p>Now you provide a few examples before the actual task:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Classify the sentiment as Positive, Negative, or Neutral.
+
+Sentence: "I love this phone, it works perfectly."
+Sentiment: Positive
+
+Sentence: "The app keeps crashing every time I open it."
+Sentiment: Negative
+
+Sentence: "The weather is okay today."
+Sentiment: Neutral
+
+Sentence: "I waited 40 minutes for the bus and it never came."
+Sentiment:
+</code></pre></div></div>
+
+<p>Expected output: Negative</p>
+
+<h2 id="key-trade-off">Key Trade-off</h2>
+
+<p>Single-shot is about <strong>clarity and precision</strong>.<br />
+Few-shot is about <strong>pattern reinforcement and stability</strong>.</p>
+
+<p>In practice, good prompt engineering is not choosing one over the other; it’s knowing when the model needs guidance versus when it can generalize on its own.</p>
+
+<p>The better you understand the task, the fewer examples you actually need.</p>]]></content><author><name></name></author><category term="AI" /><summary type="html"><![CDATA[Prompting LLMs usually falls into two practical styles: single-shot and few-shot. The difference is simple, but the impact on output quality and behavior can be huge.]]></summary></entry></feed>

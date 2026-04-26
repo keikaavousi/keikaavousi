@@ -1,0 +1,204 @@
+I"M<p>When working with large language models, you’ll often hear three terms: <strong>temperature</strong>, <strong>top-k</strong>, and <strong>top-p (nucleus sampling)</strong>.</p>
+
+<p>They all control one thing:</p>
+
+<blockquote>
+  <p>How the model chooses the next word from a set of possibilities.</p>
+</blockquote>
+
+<p>Even though the model calculates probabilities, these settings decide how that probability is used.</p>
+
+<h2 id="temperature-how-random-the-model-is">Temperature: How “random” the model is</h2>
+
+<p>Temperature controls how confident or creative the model is when picking the next token.</p>
+
+<ul>
+  <li>Low temperature → more predictable, repetitive, stable</li>
+  <li>High temperature → more diverse, creative, sometimes risky</li>
+</ul>
+
+<h3 id="simple-intuition">Simple intuition</h3>
+
+<p>Imagine the model predicts next words like this:</p>
+
+<p>“coffee”:</p>
+
+<p>morning → 0.70
+evening → 0.20
+moon → 0.10</p>
+
+<h3 id="low-temperature-eg-02">Low temperature (e.g. 0.2)</h3>
+
+<p>The model almost always picks:</p>
+
+<p>morning</p>
+
+<h3 id="high-temperature-eg-10">High temperature (e.g. 1.0+)</h3>
+
+<p>Now it might pick:</p>
+
+<p>morning / evening / moon</p>
+
+<p>Even low-probability choices become more likely.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Prompt:</p>
+
+<p>Write a short sentence about coffee.</p>
+
+<p>Low temperature output:</p>
+
+<p>I drink coffee every morning.</p>
+
+<p>High temperature output:</p>
+
+<p>Coffee tastes like warm memory in a quiet room.</p>
+
+<p>Same prompt. Different behavior.</p>
+
+<h2 id="top-k-limit-to-top-k-options">Top-k: Limit to top K options</h2>
+
+<p>Top-k sampling restricts the model to only the <strong>K most likely tokens</strong>.</p>
+
+<p>Instead of considering all possibilities, it trims the list.</p>
+
+<h3 id="example-1">Example</h3>
+
+<p>Probabilities:</p>
+
+<p>morning: 0.40
+evening: 0.25
+night: 0.20
+moon: 0.10
+banana: 0.05</p>
+
+<p>If <strong>top-k = 3</strong>, only these are allowed:</p>
+
+<p>morning, evening, night</p>
+
+<p>Everything else is ignored.</p>
+
+<h3 id="effect">Effect</h3>
+
+<ul>
+  <li>Reduces weird outputs</li>
+  <li>Keeps responses more focused</li>
+  <li>Still allows some randomness</li>
+</ul>
+
+<h2 id="3-top-p-nucleus-sampling-probability-cutoff">3. Top-p (Nucleus Sampling): Probability cutoff</h2>
+
+<p>Top-p is more dynamic.</p>
+
+<p>Instead of picking a fixed number of tokens, it selects the smallest set whose total probability reaches <strong>p</strong>.</p>
+
+<h3 id="example-2">Example</h3>
+
+<p>Probabilities:</p>
+
+<p>morning: 0.40
+evening: 0.25
+night: 0.20
+moon: 0.10
+banana: 0.05</p>
+
+<p>If <strong>top-p = 0.80</strong>, we include:</p>
+
+<p>morning (0.40)
+evening (0.25)
+night (0.20)</p>
+
+<p>Total = 0.85 → stop here</p>
+
+<p>So only these tokens are considered.</p>
+
+<h3 id="why-its-useful">Why it’s useful</h3>
+
+<ul>
+  <li>Adapts to context automatically</li>
+  <li>More flexible than top-k</li>
+  <li>Common in modern LLM systems</li>
+</ul>
+
+<h2 id="4-how-they-work-together">4. How they work together</h2>
+
+<p>In practice, these are often combined:</p>
+
+<ul>
+  <li>Temperature adjusts randomness</li>
+  <li>Top-k limits candidate size</li>
+  <li>Top-p filters by probability mass</li>
+</ul>
+
+<p>Think of it like a funnel:</p>
+
+<p>All tokens
+↓ (top-k / top-p filters)
+Filtered tokens
+↓ (temperature reshapes probability)
+Final sampling choice</p>
+
+<h2 id="5-real-world-behavior-example">5. Real-world behavior example</h2>
+
+<p>Prompt:</p>
+
+<p>Explain what programming is in one sentence.</p>
+
+<h3 id="low-temperature--top-p">Low temperature + top-p</h3>
+
+<p>Programming is the process of writing instructions for a computer to follow.</p>
+
+<h3 id="high-temperature--top-p">High temperature + top-p</h3>
+
+<p>Programming is like teaching a machine how to think through structured language.</p>
+
+<h3 id="higher-randomness">Higher randomness</h3>
+
+<p>Programming is a way humans whisper logic into machines using code.</p>
+
+<p>Same meaning direction — different expression styles.</p>
+
+<h2 id="6-when-to-use-what">6. When to use what</h2>
+
+<p>Not rules, just intuition:</p>
+
+<ul>
+  <li><strong>Temperature 0–0.3</strong>
+    <ul>
+      <li>factual answers</li>
+      <li>code generation</li>
+      <li>structured outputs</li>
+    </ul>
+  </li>
+  <li><strong>Temperature 0.7–1.0</strong>
+    <ul>
+      <li>writing</li>
+      <li>brainstorming</li>
+      <li>explanations</li>
+    </ul>
+  </li>
+  <li><strong>Top-k</strong>
+    <ul>
+      <li>avoids extreme randomness</li>
+    </ul>
+  </li>
+  <li><strong>Top-p</strong>
+    <ul>
+      <li>general-purpose control, usually preferred</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="final-intuition">Final intuition</h2>
+
+<p>You are not changing what the model <em>knows</em>.</p>
+
+<p>You are changing:</p>
+
+<blockquote>
+  <p>how far it is allowed to explore its probability space before choosing a word.</p>
+</blockquote>
+
+<p>That’s the real power of these parameters.</p>
+:ET

@@ -1,0 +1,16 @@
+title: MohammadReza Keikavousi
+description: Senior Software Engineer and Medical Informatics Specialist
+url: ""
+baseurl: ""
+markdown: kramdown
+permalink: /blog/:title/
+
+plugins:
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post

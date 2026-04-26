@@ -1,0 +1,42 @@
+I"y<main class="blog-page">
+    <header class="blog-header">
+        <h1>Blog</h1>
+        <p>What I'm thinking about...</p>
+    </header>
+
+    
+    <ul class="blog-list">
+        
+        <li class="blog-list-item">
+            <a class="blog-post-title" href="/blog/llm-prediction/">How LLMs Predict Answers</a>
+            <p class="blog-post-meta">April 26, 2026</p>
+            
+            <p class="blog-post-excerpt">When you ask a large language model a question, it might feel like it’s “thinking” or “knowing things.” But what’s actually happening is much simpler and also more interesting!
+</p>
+            
+        </li>
+        
+        <li class="blog-list-item">
+            <a class="blog-post-title" href="/blog/top-k-top-p-temperature/">Top-k, Top-p, and Temperature in LLMs Explained Simply</a>
+            <p class="blog-post-meta">April 21, 2026</p>
+            
+            <p class="blog-post-excerpt">When working with large language models, you’ll often hear three terms: temperature, top-k, and top-p (nucleus sampling).
+</p>
+            
+        </li>
+        
+        <li class="blog-list-item">
+            <a class="blog-post-title" href="/blog/single-vs-fewshot-prompt/">Single-Shot vs Few-Shot Prompting</a>
+            <p class="blog-post-meta">April 20, 2026</p>
+            
+            <p class="blog-post-excerpt">Prompting LLMs usually falls into two practical styles: single-shot and few-shot. The difference is simple, but the impact on output quality and behavior can be huge.
+</p>
+            
+        </li>
+        
+    </ul>
+    
+
+    <p class="post-back"><a href="/">← Back to home</a></p>
+</main>
+:ET

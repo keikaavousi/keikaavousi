@@ -1,0 +1,74 @@
+I"<p>Prompting LLMs usually falls into two practical styles: single-shot and few-shot. The difference is simple, but the impact on output quality and behavior can be huge.</p>
+
+<h2 id="single-shot-prompting">Single-Shot Prompting</h2>
+
+<p>Single-shot prompting gives the model only one instruction (or sometimes no example at all) and expects it to generalize. It relies heavily on the model’s pre-trained knowledge and your ability to describe the task clearly.</p>
+
+<p>It works best when:</p>
+<ul>
+  <li>The task is well-defined</li>
+  <li>The output format is structured</li>
+  <li>You want minimal overhead and fast iteration</li>
+</ul>
+
+<p>But it can fail when the task is ambiguous or requires specific patterns the model hasn’t strongly inferred.</p>
+
+<h3 id="single-shot-prompt-example">Single-Shot Prompt Example</h3>
+
+<p>You give one instruction, no examples:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Classify the sentiment of this sentence as Positive, Negative, or Neutral.
+
+Sentence: "I waited 40 minutes for the bus and it never came."
+</code></pre></div></div>
+
+<p>Expected output:</p>
+
+<p>Negative</p>
+
+<p>Here, the model relies only on the instruction and its internal understanding of sentiment.</p>
+
+<h2 id="few-shot-prompting">Few-Shot Prompting</h2>
+
+<p>Few-shot prompting provides multiple examples of input-output pairs. Instead of just telling the model what to do, you show it how to do it.</p>
+
+<p>This improves consistency because the model starts to detect patterns:</p>
+<ul>
+  <li>Input → Output structure becomes clearer</li>
+  <li>Edge cases are implicitly demonstrated</li>
+  <li>Output style becomes more stable</li>
+</ul>
+
+<p>However, it also increases prompt size and can introduce bias if examples are poorly chosen.</p>
+
+<h3 id="few-shot-prompt-example">Few-Shot Prompt Example</h3>
+<p>Now you provide a few examples before the actual task:</p>
+
+<p>```text
+Classify the sentiment as Positive, Negative, or Neutral.</p>
+
+<p>Sentence: “I love this phone, it works perfectly.”
+Sentiment: Positive</p>
+
+<p>Sentence: “The app keeps crashing every time I open it.”
+Sentiment: Negative</p>
+
+<p>Sentence: “The weather is okay today.”
+Sentiment: Neutral</p>
+
+<p>Sentence: “I waited 40 minutes for the bus and it never came.”
+Sentiment:</p>
+
+<p>Expected output:</p>
+
+<p>Negative</p>
+
+<h2 id="key-trade-off">Key Trade-off</h2>
+
+<p>Single-shot is about <strong>clarity and precision</strong>.<br />
+Few-shot is about <strong>pattern reinforcement and stability</strong>.</p>
+
+<p>In practice, good prompt engineering is not choosing one over the other — it’s knowing when the model needs guidance versus when it can generalize on its own.</p>
+
+<p>The better you understand the task, the fewer examples you actually need.</p>
+:ET
