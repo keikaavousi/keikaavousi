@@ -1,6 +1,7 @@
 ---
 title: "How LLMs Predict Answers"
-categories: AI
+categories: ["AI"]
+icon: "/assets/icons/llm.svg"
 ---
 
 When you ask a large language model a question, it might feel like it’s “thinking” or “knowing things.” But what’s actually happening is much simpler and also more interesting!

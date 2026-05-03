@@ -1,6 +1,7 @@
 ---
 title: "Top-k, Top-p, and Temperature in LLMs Explained Simply"
-categories: AI
+categories: ["AI"]
+icon: "/assets/icons/sampling.svg"
 ---
 
 When working with large language models, you’ll often hear three terms: **temperature**, **top-k**, and **top-p (nucleus sampling)**.

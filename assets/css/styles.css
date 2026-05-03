@@ -386,6 +386,12 @@ body.layout-post {
     margin-top: 48px;
 }
 
+.post-categories {
+    margin-block: 8px;
+    display: flex;
+    gap: 8px;
+}
+
 .post-category {
     display: inline-block;
 
@@ -395,8 +401,6 @@ body.layout-post {
     border-radius: 5px;
 
     padding: 5px;
-
-    margin-block: 8px;
 }
 
 .post-back {

@@ -1,6 +1,7 @@
 ---
 title: "Single-Shot vs Few-Shot Prompting"
-categories: AI
+categories: ["AI"]
+icon: "/assets/icons/prompting.svg"
 ---
 
 Prompting LLMs usually falls into two practical styles: single-shot and few-shot. The difference is simple, but the impact on output quality and behavior can be huge.
