@@ -19,21 +19,28 @@
 
     <script>
         function openResume() {
+            const sheet = document.getElementById("resume-sheet");
+
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
-            document.body.style.overflowY = "hidden"
-            const sheet = document.getElementById("resume-sheet");
-            if (sheet) {
+
+            setTimeout(() => {
+                const subtitleEl = document.getElementById("profile-img");
+                const topPosition =
+                    subtitleEl.offsetTop + subtitleEl.offsetHeight;
+
+                sheet.style.top = `${topPosition + 30}px`;
                 sheet.classList.remove("hidden");
-                sheet.scrollTo(0, 0)
-            }
+
+                document.body.style.overflowY = "hidden";
+            }, 300);
         }
 
         function closeResume() {
             const sheet = document.getElementById("resume-sheet");
-            if (sheet) sheet.classList.add("hidden");
+            sheet.classList.add("hidden");
             document.body.style.overflowY = "auto"
         }
     </script>

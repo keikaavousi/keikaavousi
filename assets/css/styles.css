@@ -514,7 +514,6 @@ body.layout-post {
     left: 0;
 
     width: 100%;
-    height: 61vh;
 
     background: #f8f3ea;
 
@@ -706,5 +705,13 @@ hr {
 
     .highlight-item {
         padding: 18px;
+    }
+
+    .sheet-content {
+        padding: 24px;
+    }
+
+    .sheet-header {
+        padding: 18px 24px;
     }
 }
