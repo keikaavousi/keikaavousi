@@ -127,6 +127,11 @@ layout: default
             {% for post in site.posts limit:5 %}
             <li class="post-item">
                 <a href="{{ post.url | relative_url }}">
+                    {% if post.icon %}
+                    <img src="{{ post.icon | relative_url }}" alt="" class="post-icon">
+                    {% else %}
+                    <img src="/assets/icons/default.svg" alt="" class="post-icon">
+                    {% endif %}
                     {{ post.title }}
                 </a>
                 <span>
@@ -148,10 +153,9 @@ layout: default
 
 <div id="resume-sheet" class="sheet hidden">
 
-    <div class="sheet-header">
-        <button class="back-btn" onclick="closeResume()">← Back</button>
-        <h2>Resume</h2>
-    </div>
+    <nav class="top-nav">
+        <button class="back-btn" onclick="closeResume()">← Home</a>
+    </nav>
 
     <div class="sheet-content">
 
@@ -423,5 +427,9 @@ layout: default
         </ul>
 
     </div>
+
+    <nav class="top-nav">
+        <button class="back-btn" onclick="closeResume()">← Home</a>
+    </nav>
 
 </div>

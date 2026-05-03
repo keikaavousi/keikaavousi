@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="12" fill="#020617"/>
+
+  <!-- main prompt box -->
+  <rect x="14" y="16" width="36" height="12" rx="3" fill="none" stroke="#38bdf8" stroke-width="2"/>
+
+  <!-- few-shot lines -->
+  <rect x="18" y="32" width="28" height="4" rx="2" fill="#38bdf8"/>
+  <rect x="18" y="40" width="24" height="4" rx="2" fill="#38bdf8"/>
+  <rect x="18" y="48" width="20" height="4" rx="2" fill="#38bdf8"/>
+</svg>

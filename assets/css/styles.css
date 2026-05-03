@@ -83,7 +83,7 @@ p {
     object-fit: cover;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.05);
+        0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .intro {
@@ -161,7 +161,7 @@ p {
     border-radius: 12px;
     border: 1px solid transparent;
 
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
 
     transition:
         background .2s ease,
@@ -175,7 +175,7 @@ p {
     transform: translateY(-1px);
 
     border-color: #d4c7b7;
-    background: rgba(255,255,255,0.55);
+    background: rgba(255, 255, 255, 0.55);
 }
 
 .icon {
@@ -199,7 +199,7 @@ p {
 }
 
 .highlight-item {
-    background: rgba(255,255,255,0.35);
+    background: rgba(255, 255, 255, 0.35);
 
     border: 1px solid #ddd2c4;
     border-radius: 16px;
@@ -306,7 +306,7 @@ p {
 }
 
 .post-item:hover {
-    background-color: rgba(0,0,0,0.02);
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .post-item a {
@@ -396,7 +396,7 @@ body.layout-post {
 
     padding: 5px;
 
-    margin-top: 8px;
+    margin-block: 8px;
 }
 
 .post-back {
@@ -500,7 +500,7 @@ body.layout-post {
     left: 0;
 
     width: 100%;
-    height: 95vh;
+    height: 100vh;
 
     background: #f8f3ea;
 
@@ -533,6 +533,8 @@ body.layout-post {
     gap: 14px;
 
     border-bottom: 1px solid #dfd6c8;
+    max-width: 760px;
+    margin: 0 auto;
 }
 
 .sheet-header h2 {
@@ -569,11 +571,9 @@ body.layout-post {
 /* Sheet Content */
 
 .sheet-content {
-    max-width: 720px;
-
+    max-width: 760px;
+    padding-bottom: 50px;
     margin: auto;
-
-    padding: 40px 28px 80px 28px;
 }
 
 .sheet-content p {
@@ -697,4 +697,17 @@ hr {
         max-width: 560px;
     }
 
+}
+
+.post-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-right: 0.75rem;
+}
+
+.post-item a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
