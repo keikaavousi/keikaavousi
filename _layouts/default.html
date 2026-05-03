@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 </head>
+
 <body class="layout-{{ page.layout | default: 'default' }}">
     {{ content }}
 
     <script>
         function openResume() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+            document.body.style.overflowY = "hidden"
             const sheet = document.getElementById("resume-sheet");
-            if (sheet) sheet.classList.remove("hidden");
+            if (sheet) {
+                sheet.classList.remove("hidden");
+                sheet.scrollTo(0, 0)
+            }
         }
 
         function closeResume() {
             const sheet = document.getElementById("resume-sheet");
             if (sheet) sheet.classList.add("hidden");
+            document.body.style.overflowY = "auto"
         }
     </script>
 </body>
+
 </html>

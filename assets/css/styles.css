@@ -294,7 +294,7 @@ p {
 .post-item {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 
     gap: 12px;
 
@@ -312,12 +312,22 @@ p {
 .post-item a {
     font-weight: 400;
     line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 .post-item span {
     color: #7f7261;
     font-size: 0.85rem;
     white-space: nowrap;
+}
+
+.post-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-inline: 0.75rem;
 }
 
 .posts-more {
@@ -504,7 +514,7 @@ body.layout-post {
     left: 0;
 
     width: 100%;
-    height: 100vh;
+    height: 61vh;
 
     background: #f8f3ea;
 
@@ -516,8 +526,6 @@ body.layout-post {
     z-index: 999;
 
     overflow-y: auto;
-
-    padding: 28px 20px 60px;
 }
 
 .sheet:not(.hidden) {
@@ -532,9 +540,10 @@ body.layout-post {
 
     background: #f8f3ea;
 
-    padding: 18px 28px;
+    padding: 18px 0;
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 14px;
 
@@ -552,10 +561,10 @@ body.layout-post {
 
 /* Back Button */
 
-.back-btn {
-    border: 1px solid #d8cdbd;
+.btn {
+    border: 1px solid transparent;
 
-    background: #efe7d9;
+    background: rgba(255, 255, 255, 0.3);
     color: #4a4136;
 
     padding: 6px 12px;
@@ -570,8 +579,9 @@ body.layout-post {
     font-weight: 300;
 }
 
-.back-btn:hover {
-    background: #e7ddcd;
+.btn:hover {
+    border-color: #d4c7b7;
+    background: rgba(255, 255, 255, 0.55);
 }
 
 /* Sheet Content */
@@ -697,23 +707,4 @@ hr {
     .highlight-item {
         padding: 18px;
     }
-
-    .sheet-content {
-        padding: 30px 20px 70px 20px;
-        max-width: 560px;
-    }
-
-}
-
-.post-icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    margin-right: 0.75rem;
-}
-
-.post-item a {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
 }
