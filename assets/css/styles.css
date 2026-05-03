@@ -516,6 +516,8 @@ body.layout-post {
     z-index: 999;
 
     overflow-y: auto;
+
+    padding: 28px 20px 60px;
 }
 
 .sheet:not(.hidden) {
