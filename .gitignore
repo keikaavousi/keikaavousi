@@ -13,5 +13,5 @@
 # macOS junk
 .DS_Store
 
-# node (اگر استفاده کنی)
+# node
 node_modules/
