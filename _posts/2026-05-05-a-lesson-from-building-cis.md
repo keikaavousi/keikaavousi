@@ -47,6 +47,50 @@ The issue was not that doctors disliked structured systems.
 
 **The issue was time.**
 
+
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- background -->
+  <rect width="64" height="64" rx="12" fill="#f4efe6"/>
+
+  <!-- LEFT: structured system -->
+  <rect x="4" y="10" width="18" height="44" rx="3"
+        fill="none" stroke="#2f2a24" stroke-width="2"/>
+
+  <line x1="7" y1="18" x2="18" y2="18" stroke="#2f2a24" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="7" y1="25" x2="17" y2="25" stroke="#2f2a24" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="7" y1="32" x2="18" y2="32" stroke="#2f2a24" stroke-width="1.2" stroke-linecap="round"/>
+
+  <rect x="7" y="40" width="3" height="3" fill="none" stroke="#2f2a24" stroke-width="1"/>
+  <rect x="12" y="40" width="3" height="3" fill="none" stroke="#2f2a24" stroke-width="1"/>
+  <rect x="17" y="40" width="3" height="3" fill="none" stroke="#2f2a24" stroke-width="1"/>
+
+  <!-- RIGHT: free text -->
+  <rect x="42" y="10" width="18" height="44" rx="3"
+        fill="none" stroke="#2f2a24" stroke-width="2"/>
+
+  <line x1="45" y1="18" x2="58" y2="20" stroke="#2f2a24" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="45" y1="25" x2="56" y2="28" stroke="#2f2a24" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="45" y1="32" x2="59" y2="34" stroke="#2f2a24" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="45" y1="39" x2="55" y2="42" stroke="#2f2a24" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- CENTER GAP: clear separation zone -->
+  <line x1="26" y1="32" x2="38" y2="32"
+        stroke="#2f2a24" stroke-width="1.2"
+        stroke-dasharray="2.5 2.5"/>
+
+  <!-- TIME (fully separated, bottom focus) -->
+  <circle cx="32" cy="54" r="4"
+          fill="none" stroke="#2f2a24" stroke-width="1.6"/>
+
+  <line x1="32" y1="54" x2="32" y2="52"
+        stroke="#2f2a24" stroke-width="1.3" stroke-linecap="round"/>
+  <line x1="32" y1="54" x2="34" y2="55"
+        stroke="#2f2a24" stroke-width="1.3" stroke-linecap="round"/>
+
+</svg>
+
+
 Clinical visits are often extremely short. Physicians need to maintain eye contact, listen carefully, think clinically, document findings, and continue the conversation naturally — all within a limited timeframe.
 
 Several physicians explained something very similar:
