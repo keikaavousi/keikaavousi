@@ -1,4 +1,4 @@
-# 👋 Hi, I'm MohammadReza
+# 👋 Hi, I'm Mohammad Reza
 
 🚀 Senior Software Engineer | Front-End Specialist | AI & Healthcare Systems Enthusiast
 
