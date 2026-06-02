@@ -3,7 +3,7 @@
 **Senior Software Engineer | Medical Informatics Engineer | Clinical Data Systems & Digital Health Researcher**
 
 📧 [keikaavousi@gmail.com](mailto:keikaavousi@gmail.com)  
-🌐 [www.keikaavousi.com](https://www.keikaavousi.com) | [GitHub](https://github.com/keikaavousi) | [LinkedIn](https://linkedin.com/in/keikaavousi)
+🌐 [www.keikaavousi.com](https://www.keikaavousi.com) | [Scholar](https://scholar.google.com/citations?user=8ubfQpcAAAAJ) | [GitHub](https://github.com/keikaavousi) | [LinkedIn](https://linkedin.com/in/keikaavousi)
 
 ---
 
