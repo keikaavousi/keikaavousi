@@ -4,8 +4,6 @@ categories: ["AI Engineering", "Medical Informatics"]
 icon: "/assets/icons/structured.svg"
 ---
 
-# From Clinical Reality to AI-Ready Data
-
 In a previous article, [_What I Learned Building a Clinical Documentation System_](https://keikaavousi.com/blog/a-lesson-from-building-cis/), I described an unexpected lesson from healthcare software development.
 
 Although the system provided structured fields for diagnoses, medications, treatment plans, and clinical observations, many physicians still preferred documenting most information in free-text notes.

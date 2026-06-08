@@ -381,6 +381,10 @@ body.layout-post {
     color: #3f382f;
 }
 
+.post-content a {
+    border-bottom: 1px dashed #2f2a24;
+}
+
 .post-content p,
 .post-content li {
     margin: 10px 0;
