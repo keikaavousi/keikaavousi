@@ -52,7 +52,7 @@ I enjoy turning complex problems into simple, usable, and scalable products.
 
 ## 📫 Contact
 
-- Email: keikaavousiexample.com
+- Email: keikaavousi@gmail.com
 - LinkedIn: https://linkedin.com/in/keikaavousi
 - Website: https://keikaavousi.com
 
